@@ -80,6 +80,11 @@ class PlayerController {
           result: "Success",
           data: player,
         });
+      } else {
+        return res.status(404).json({
+          result: "Not found",
+          message: `Player with ${id} not found`
+        })
       }
     } catch (error) {
       next(error);
@@ -89,6 +94,8 @@ class PlayerController {
   static async updatePlayer(req, res, next) {
     try {
       const { id } = req.params;
+      const player = await Player.findByPk(id)
+      if (!player) return res.status(404).json({ result: "Not found", message: `Player with ${id} not found` })
       const updatedPlayer = await Player.update(req.body, {
         where: { id: id },
       });
@@ -112,7 +119,6 @@ class PlayerController {
     try {
       const { exp } = req.body;
       const { id } = req.params;
-
       if (!exp) {
         return res.status(400).json({
           result: "Failed",
@@ -121,6 +127,8 @@ class PlayerController {
       }
 
       const player = await Player.findByPk(id);
+      if (!player) return res.status(404).json({ result: "Not found", message: `Player with ${id} not found` })
+
       if (player) {
         let expValue = player.experience + parseInt(exp);
         let lvlValue =
