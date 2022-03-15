@@ -19,8 +19,9 @@ $ git clone https://github.com/[username_kalian]/binar-challenge-chapter-8.git
 3. Pindah ke folder repository yang udah di clone dgn perintah 
 `cd binar-challenge-chapter-8`
 4.  Install dependencies dgn command `npm install`
-5.   Pastikan sudah membuat database sesuai konfigurasi di `/config/config.js` jika belum jalankan saja `npx sequelize db:create`
-6.   Lanjutkan dengan menjalankan migrasi, `npx sequelize db:migrate`
+5.   Pastikan sudah membuat database sesuai konfigurasi di `/config/config.js` jika belum jalankan saja `npx sequelize db:create` dan juga pastikan kita harus berada pada directory `server` kalau belum `cd server`
+6.   Lanjutkan dengan menjalankan migrasi, sebelumnya kita harus masuk pada directory `server` dulu ya, `npx sequelize db:migrate`
+7.   Kamu juga bisa jalankan file seed yang sudah dibuat dengan cara `npx sequelize db:seed:all`
 ### Run
 Untuk menjalankan aplikasi RESTful API, cukup jalankan perintah berikut
 ```
