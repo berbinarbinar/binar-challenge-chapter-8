@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { iniGwExport } from '.';
 import { Heading } from './components/Heading';
+import { SubHeading } from './components/SubHeading';
 
 const sule = 'prikitiew';
 
@@ -11,16 +12,6 @@ const SubSubHeading = () => {
       <h3>Ini subsubheading</h3>
       <p>Ini bagian dari subsubheading</p>
     </>
-  )
-}
-
-function SubHeading() {
-  return (
-    <div>
-      <h2>Ini subheading</h2>
-      <p>Ini bagian dari subheading</p>
-      <span>ini span</span>
-    </div>
   )
 }
 
@@ -46,7 +37,7 @@ function App() {
       <header className='App-header'>
         <div>
           <Heading title="ini title" yangLaen="ini yang laen" count={satu} alertAja={alertAja} />
-          <SubHeading />
+          <SubHeading title="ini udah diubah" />
           <SubSubHeading />
         </div>
       </header>
