@@ -1,5 +1,6 @@
 import { 
   Alert, 
+  AlertTitle, 
   Collapse, 
   Container, 
   FormControl, 
@@ -15,6 +16,7 @@ import { useLocation } from "react-router-dom"
 
 export default function Dashboard() {
   const location = useLocation();
+  const {action, ...data} = location.state || {};
   const [searchBy, setSearchBy] = useState('username');
   const [search, setSearch] = useState('');
   const [open, setOpen] = useState(false);
@@ -26,14 +28,19 @@ export default function Dashboard() {
     setSearch(e.target.value)
   }
   useEffect(() => {
-    if (location.state?.action) setOpen(true)
-  },[location.state?.action])
+    action ? setOpen(true) : setOpen(false)
+  },[action])
 
   return (
     <Container>
       <Typography variant="h4">ini dari dashboard player</Typography>
       <Collapse in={open}>
-        <Alert severity="success" onClose={() => setOpen(false) }>Succes {location.state?.action} player</Alert>
+        <Alert severity="success" onClose={() => setOpen(false) }>
+          <AlertTitle>
+            Succes {action} player
+          </AlertTitle>
+          {  JSON.stringify(data, null, 2) }
+        </Alert>
       </Collapse>
       <Paper
         component="form"
