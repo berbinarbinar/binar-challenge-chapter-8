@@ -21,19 +21,15 @@ export default function Search() {
   const handleSearch = (e) => setSearch(e.target.value);
 
   const handleSubmit = (e) => {
-   console.log(data.length)
     e.preventDefault();
+    console.log(data.length);
     let searchData = file.filter((item) => item.email === search);
     setData(searchData);
   };
 
   return (
     <>
-      <FormControl
-        display="flex"
-        justifyContent="center"
-        mb="10"
-      >
+      <FormControl display="flex" justifyContent="center" mb="10">
         <Input
           placeholder="search email here"
           width="30"
@@ -47,19 +43,19 @@ export default function Search() {
           onClick={handleSubmit}
         />
       </FormControl>
-      {search ? (
-        <Table variant="striped" w="50%" mx="auto">
-          <TableCaption>player's table</TableCaption>
-          <Thead>
-            <Tr>
-              <Th textAlign="center">username</Th>
-              <Th textAlign="center">email</Th>
-              <Th textAlign="center">password</Th>
-              <Th textAlign="center">experience</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {data.map((e,i) => {
+      <Table variant="striped" w="50%" mx="auto">
+        <TableCaption>player's table</TableCaption>
+        <Thead>
+          <Tr>
+            <Th textAlign="center">username</Th>
+            <Th textAlign="center">email</Th>
+            <Th textAlign="center">password</Th>
+            <Th textAlign="center">experience</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {search ? (
+            data.map((e, i) => {
               return (
                 <Tr key={i}>
                   <Td textAlign={"center"}>{e.username}</Td>
@@ -68,22 +64,9 @@ export default function Search() {
                   <Td textAlign={"center"}>{e.experience}</Td>
                 </Tr>
               );
-            })}
-          </Tbody>
-        </Table>
-      ) : (
-        <Table variant="striped" w="50%" mx="auto">
-          <TableCaption>player's table</TableCaption>
-          <Thead>
-            <Tr>
-              <Th textAlign="center">username</Th>
-              <Th textAlign="center">email</Th>
-              <Th textAlign="center">password</Th>
-              <Th textAlign="center">experience</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            {file.map((e,i) => {
+            })
+          ) : (
+            file.map((e, i) => {
               return (
                 <Tr key={i}>
                   <Td textAlign={"center"}>{e.username}</Td>
@@ -92,10 +75,10 @@ export default function Search() {
                   <Td textAlign={"center"}>{e.experience}</Td>
                 </Tr>
               );
-            })}
-          </Tbody>
-        </Table>
-      )}
+            })
+          )}
+        </Tbody>
+      </Table>
     </>
   );
 }

@@ -11,9 +11,9 @@ export default function NavBar() {
     <Box w="100%"/>
     <Box w="100%" display="flex">
       <div style={{marginLeft:"auto"}}>
-      <Link mr="30px">register</Link>
+      <Link mr="30px" href="/register">register</Link>
       </div>
     </Box>
   </Grid>
-  );
+  )
 }
