@@ -31,26 +31,26 @@ $ npm run start
 ## Tasks
 Jika teman-teman sudah berhasil menjalankan aplikasi RESTful API dari repository ini, teman-teman perlu melakukan dua hal:
 1. Membuat dokumentasi API dengan Swagger
-    - [ ] Baca code repository RESTful API ini baik-baik
-    - [ ] Buat dokumentasi untuk semua endpoint yang terdaftar di router
-    - [ ] Dokumentasi melingkupi : 
-        - [ ] HTTP method
-        - [ ] URL
-        - [ ] URL parameter (jika ada)
-        - [ ] Query parameter (jika ada)
-        - [ ] Request body (jika ada)
-        - [ ] format response
-    - [ ] Pasang dokumentasi Swagger dalam satu routing
+    - [V] Baca code repository RESTful API ini baik-baik
+    - [V] Buat dokumentasi untuk semua endpoint yang terdaftar di router
+    - [V] Dokumentasi melingkupi : 
+        - [V] HTTP method
+        - [V] URL
+        - [V] URL parameter (jika ada)
+        - [V] Query parameter (jika ada)
+        - [V] Request body (jika ada)
+        - [V] format response
+    - [V] Pasang dokumentasi Swagger dalam satu routing
 2. Membuat client-side application dengan React.js
-    - [ ] Buat folder baru, misalkan /client, kemudian buat project baru dalam folder tersebut dengan `$ npm init -y` atau `$ npx create-react-app client`
-    - [ ] Buat tampilan/UI untuk fitur berikut :
-        - [ ] Form untuk membuat player baru, dengan tombol Submit
-        - [ ] Form untuk mengedit player, dengan tombol Submit
-        - [ ] Form untuk pencarian player berdasarkan 4 kriteria pencarian : username, email, experience, dan lvl. jangan lupa juga tombol submit.
-    - [ ] Kita belum belajar mengintegrasikan back-end dan front-end. Jadi untuk challenge ini, ketika di klik tombol submit tampilkan semua input sebagai satu elemen HTML baru
-        - [ ] Untuk form membuat atau edit player, tampilkan info username, email, dll setelah di klik submit. 
-        - [ ] Untuk form mencari player, tampilkan ulang input kriteria username, email, experience, dan lvl.
-    - [ ] Jalankan sebagai aplikasi client-side (npm run start di folder client (buat run react app))
+    - [V] Buat folder baru, misalkan /client, kemudian buat project baru dalam folder tersebut dengan `$ npm init -y` atau `$ npx create-react-app client`
+    - [V] Buat tampilan/UI untuk fitur berikut :
+        - [V] Form untuk membuat player baru, dengan tombol Submit
+        - [V] Form untuk mengedit player, dengan tombol Submit
+        - [V] Form untuk pencarian player berdasarkan 4 kriteria pencarian : username, email, experience, dan lvl. jangan lupa juga tombol submit.
+    - [V] Kita belum belajar mengintegrasikan back-end dan front-end. Jadi untuk challenge ini, ketika di klik tombol submit tampilkan semua input sebagai satu elemen HTML baru
+        - [V] Untuk form membuat atau edit player, tampilkan info username, email, dll setelah di klik submit. 
+        - [V] Untuk form mencari player, tampilkan ulang input kriteria username, email, experience, dan lvl.
+    - [V] Jalankan sebagai aplikasi client-side (npm run start di folder client (buat run react app))
 
 ## Caveats / Batasan
 - Tugas nomor 1 dan 2 dibuat dalam repository yang sama dengan repository RESTful API. Dengan kata lain, teman-teman bertugas mengembangkan repository RESTful API ini menjadi repository full-stack (RESTful API + client-side + documentation)
@@ -62,3 +62,13 @@ Jika teman-teman sudah berhasil menjalankan aplikasi RESTful API dari repository
 ## Petunjuk Submission
 - Challenge di submit paling lambat hari Senin di minggu ketiga chapter 8, pukul 23:59 WIB.
 - metode submission: kirim email ke mentor dan bagian akademik Binar, berisi link repository teman-teman (yang di fork) di Gitlab.
+
+## Hasil
+- Dokumentasi Postman Dapat Diakses di https://documenter.getpostman.com/view/19147947/UVsLRm6t
+- DOkumentasi Swagger Dapat Diakses di http://localhost:4000/api-docs/
+- Player Lists Menu:
+![](results/player-lists.png)
+- Create Player Form:
+![](results/create-player.png)
+- Edit Player Form:
+![](results/edit-player.png)
