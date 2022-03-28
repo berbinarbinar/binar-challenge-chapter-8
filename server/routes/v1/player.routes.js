@@ -229,3 +229,5 @@ playerRouter.delete("/:id", PlayerController.deletePlayer);
 playerRouter.post("/exp/:id", PlayerController.updateExperience);
 
 module.exports = playerRouter;
+
+// There are a lot of problem from this API Documentation, and I do not understand why since there is no explanation why some feature does not working properly
