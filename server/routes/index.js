@@ -2,7 +2,13 @@ const apiRouter = require("express").Router();
 const v1 = require("./v1");
 
 /**
- * @Routes "/api"
+ * @swagger
+ * /api:
+ *  get:
+ *    description: Use to be the entrypoint for /api
+ *    responses:
+ *      200:
+ *        description: test
  */
 
 apiRouter.get("/", (req, res) => {
