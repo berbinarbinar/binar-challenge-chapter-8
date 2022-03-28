@@ -1,4 +1,42 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  font-family: "Open Sans";
+}
+
+h1 {
+  font-family: "Bebas Neue";
+  font-weight: bold;
+  font-size: 60px;
+  color: white!important;
+  text-decoration: underline;
+}
+
+h2 {
+  font-family: "Bebas Neue";
+  font-weight: bold;
+  font-size: 36px;
+  color: orange !important;
+  text-decoration: none;
+}
+
+h3 {
+  font-family: "Open Sans";
+  font-size: 18px;
+  color: white !important;
+}
+
 .App {
   text-align: left;
+  background-image: url("../public/images/the-games-bg.jpg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  height: 855px;
+  position: relative;
 }
 
