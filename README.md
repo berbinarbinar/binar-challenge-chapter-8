@@ -65,7 +65,7 @@ Jika teman-teman sudah berhasil menjalankan aplikasi RESTful API dari repository
 
 ## Hasil
 - Dokumentasi Postman Dapat Diakses di https://documenter.getpostman.com/view/19147947/UVsLRm6t
-- DOkumentasi Swagger Dapat Diakses di http://localhost:4000/api-docs/
+- Dokumentasi Swagger Dapat Diakses di http://localhost:4000/api-docs/
 - Player Lists Menu:
 ![](results/player-lists.png)
 - Create Player Form:
