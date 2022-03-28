@@ -15,7 +15,15 @@ export default function NavBar() {
           </Button>
           <Button 
             color='inherit'
-            sx={{mr:'20px'}}  
+            sx={{display: 'flex', justifyContent: 'flex-start'}}  
+            LinkComponent={Link}
+            to='/editPlayer' 
+          >
+            Edit Player
+          </Button>
+          <Button 
+            color='inherit'
+            sx={{display: 'flex', justifyContent: 'flex-end'}}  
             LinkComponent={Link}
             to='/register' 
           >

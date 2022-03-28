@@ -1,4 +1,4 @@
-export default function Tentang() {
+export default function Login() {
   return (
     <div className='content'>
       <p>
