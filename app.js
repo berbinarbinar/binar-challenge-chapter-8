@@ -52,11 +52,11 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 /**
  * @swagger
  *  /api:
- *  get:
- *    description: Used as entry point for /api
- *    responses: 
- *      200:
- *        description: test
+ *    get:
+ *      description: Used as entry point for /api
+ *      responses: 
+ *        200:
+ *          description: Test
  */
 
 
