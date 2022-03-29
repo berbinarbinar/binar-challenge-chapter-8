@@ -1,0 +1,20 @@
+[
+    {
+        "username": "AlexanderTheGreat",
+        "email": "conquest@world.com",
+        "experience": "1000000",
+        "lvl": 100
+    },
+    {
+        "username": "ZeusThunder",
+        "email": "ilovewoman@olympus.com",
+        "experience": "2100500",
+        "lvl": 150
+    },
+    {
+        "username": "NapoLeonisTall",
+        "email": "revolution@france.com",
+        "experience": "500000",
+        "lvl": 75
+    }
+]

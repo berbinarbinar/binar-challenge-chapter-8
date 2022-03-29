@@ -116,12 +116,12 @@ playerRouter.post("/", PlayerController.createPlayer);
  *              in: body
  *              required: true
  *              schema:
- *                  type: integer
+ *                  type: string
  *            - name: email
  *              in: body
  *              required: true
  *              schema:
- *                  type: integer
+ *                  type: string
  *            - name: experience
  *              in: body
  *              required: true
