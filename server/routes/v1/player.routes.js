@@ -7,62 +7,61 @@ const playerRouter = require("express").Router();
 
 /**
  * @swagger
- * /api/v1/players:
+ * /api/v1/players/:
  *  get:
- *      summary: Show Player's Data
- *      description: To get player's data from database
- *      produces: 
- *          - application/json
+ *      summary: Retrieve a List of Players
+ *      description: Retrieve a list of players with their data
  *      responses:
  *          200:
- *              description: Players are showed
+ *              description: A list of players
  *              content:
  *                  application/json:
  *                      schema:
  *                          type: array
  *          400:
- *              description: Bad Request
- *          404:
- *              description: User with specified ID is not found
+ *              description: Bad request
  *          default:
- *              description: Unexpected error
+ *              description: Unexpected Errors
  * 
- * 
- *  post: 
+ *  post:
  *      summary: Create New Player (Upload New Player's Data)
- *      description: To create new player or upload new player data to database
- *      produces:
+ *      description: Create new player or Upload new player's data to database
+ *      consumes:
  *          - application/json
  *      parameters:
- *          - name: email
- *            in: body
- *            required: true
- *            example: alex@mail.com
- * 
- *          - name: username
- *            in: body
- *            required: true
- *            example: hydrean
- * 
- *          - name: password
- *            in: body
- *            required: true
- *            example: babiguling
- *      responses: 
+ *          - in: body
+ *            name: Crete Player
+ *            description: Creating Player
+ *            schema:
+ *              type: object  
+ *              required:  
+ *                  - username  
+ *                  - email  
+ *                  - password  
+ *                  - experience  
+ *              properties:  
+ *                  username:
+ *                      type: string
+ *                      example: godjirah
+ *                  email:
+ *                      type: string
+ *                      example: go@mail.com
+ *                  password:
+ *                      type: string
+ *                      example: helooooo
+ *                  experience:
+ *                      type: integer
+ *                      example: 1000000
+ *      responses:
  *          201:
  *              description: Player is created
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
  *          400:
  *              description: Bad Request
  *          404:
- *              description: User with specified ID is not found
+ *              description: ID/Username/email/password/experience might be empty or not valid
  *          default:
  *              description: Unexpected error
  */
-
 
 playerRouter.get("/", PlayerController.getPlayers);
 playerRouter.post("/", PlayerController.createPlayer);
@@ -71,163 +70,135 @@ playerRouter.post("/", PlayerController.createPlayer);
 /**
  * @swagger
  * /api/v1/players/{id}:
- *  get: 
- *      summary: Retrieve Chosen Player's Data by ID
- *      description: Retrieve a single player user. Can be used to populate
+ *  get:
+ *      summary: Retrieve Specific Player by ID
+ *      description: Retrieve specific player's data using ID as parameter
  *      parameters:
- *          - name: id
- *            in: path
- *            example: 1
- *            schema:
- *              type: string
+ *          - in: path
+ *            name: id
  *            required: true
+ *            schema:
+ *              type: integer
+ *            description: ID of specific player
  *      responses:
  *          200:
- *              description: Successfully shows chosen player's data
- *              content:
- *                  application/json:
- *                      properties:
- *                           schema:
- *                              type: object
- *                              properties: 
- *                                   id: 
- *                                       type: integer
- *                                       description: Player ID
- *                                       example: 1
+ *              description: Show chosen player by ID
  *          400:
- *              description: Bad Request - The specified ID is invalid
+ *              description: Bad Request
  *          404:
- *              description: User with specified ID is not found
+ *              description: ID might be invalid
+ *          default:
+ *              description: Unexpected errors
+ * 
+ *  put:
+ *      summary: Update Specific Player's Data
+ *      description: Update specific player's data using ID as parameter
+ *      consumes:
+ *          - application/json
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            required: true
+ *            schema:
+ *              type: integer
+ *            description: ID of specific player
+ *          - in: body
+ *            name: Update Player
+ *            description: Updating Player's Data
+ *            schema:
+ *              type: object  
+ *              required:  
+ *                  - username  
+ *                  - email  
+ *                  - password  
+ *                  - experience  
+ *              properties:  
+ *                  username:
+ *                      type: string
+ *                      example: bluish
+ *                  email:
+ *                      type: string
+ *                      example: blu@mail.com
+ *                  password:
+ *                      type: string
+ *                      example: hai_hai_hai
+ *                  experience:
+ *                      type: integer
+ *                      example: 100000
+ *      responses:
+ *          200:
+ *              description: Player is updated
+ *          400:
+ *              description: Bad Request
+ *          404:
+ *              description: ID/Username/email/password/experience might be empty or not valid
  *          default:
  *              description: Unexpected error
- *
- *  put:
- *       summary: Update Chosen Player's Data by ID
- *       description: Update the chosen player's data from database
- *       parameters:
- *            - name: id
- *              in: path
- *              required: true
- *              example: 1
- *              schema:
- *                  type: string
  * 
- *            - name: username
- *              in: body
- *              required: true
- *              schema:
- *                  type: string
- *            - name: email
- *              in: body
- *              required: true
- *              schema:
- *                  type: string
- *            - name: experience
- *              in: body
- *              required: true
- *              schema:
- *                  type: integer
- *            - name: lvl
- *              in: body
- *              required: true
- *              schema:
- *                  type: integer
- *       requestBody:
- *           required: true
- *           content:
- *               application/json:
- *                   schema:
- *                       type: object
- *                       properties:
- *                          username:
- *                              type: string
- *                          email:
- *                              type: string
- *                          experience:
- *                              type: integer
- *       responses:
- *           200:
- *              description: Successfully updating chosen player's data
- *              content:
- *                   application/json:
- *                       properties:
- *                           scheme:
- *                              type: object
- *                              properties:
- *                                  username:
- *                                      type: string
- *                                  email:
- *                                      type: string
- *                                  experience:
- *                                      type: integer
- *                                  lvl:
- *                                      type: integer
- *           400:
- *              description: Bad Request - The specified ID is invalid
- *           404:
- *              description: User with specified ID is not found
- *           default:
- *              description: Unexpected error
+ *  delete:
+ *      summary: Delete Specific Player by ID
+ *      description: Delete specific player's data using ID as parameter
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            required: true
+ *            schema:
+ *              type: integer
+ *            description: ID of specific player
+ *      responses:
+ *          200:
+ *              description: Delete chosen player by ID
+ *          400:
+ *              description: Bad Request
+ *          404:
+ *              description: ID might be invalid
+ *          default:
+ *              description: Unexpected errors
  */
 
 playerRouter.get("/:id", PlayerController.getPlayerById);
 playerRouter.put("/:id", PlayerController.updatePlayer);
-
-
-/**
- * @swagger
- * /api/v1/players/{id}:
- *  delete:
- *      summary: Delete Chosen Player's Data by ID
- *      parameters:
- *          - name: id
- *            in: path
- *            example: 1
- *            schema: 
- *              type: string
- *            required: true
- *      description: Delete player's data from database.
- *      responses:
- *          200:
- *              description: Player is deleted
- *          400:
- *              description: Bad Request - The specified ID is invalid
- *          404:
- *              description: User with specified ID is not found
- *          default:
- *              description: Unexpected error
- */
 playerRouter.delete("/:id", PlayerController.deletePlayer);
+
 
 /**
  * @swagger
  * /api/v1/players/exp/{id}:
  *  post:
- *      summary: Update Chosen Player Experience by ID
- *      parametes:
- *          - name: id
- *            in: path
- *            example: 1
- *            schema:
- *              type: string
+ *      summary: Update Specific Player's Experience
+ *      description: Update specific player's experience using ID as parameter
+ *      consumes:
+ *          - application/json
+ *      parameters:
+ *          - in: path
+ *            name: id
  *            required: true
- *      description: Updating chosen plyaer experience without changing others criteria
+ *            schema:
+ *              type: integer
+ *            description: ID of specific player
+ *          - in: body
+ *            name: Crete Player
+ *            description: Creating Player
+ *            schema:
+ *              type: object  
+ *              required:  
+ *                  - experience  
+ *              properties:
+ *                  exp:
+ *                      type: integer
+ *                      example: 10000
  *      responses:
- *          200:
- *                  content:
- *                      application/json:
- *                          schema:
- *                              type: object
- *                              properties:
- *                                  experience:
- *                                      type: integer
- *                                  lvl:
- *                                      type: integer
+ *          201:
+ *              description: Player's Experience is Updated
+ *          400:
+ *              description: Bad Request
+ *          404:
+ *              description: ID/experience might be empty or not valid
+ *          default:
+ *              description: Unexpected error
  * 
  */
 
 playerRouter.post("/exp/:id", PlayerController.updateExperience);
 
 module.exports = playerRouter;
-
-// There are a lot of problem from this API Documentation, and I do not understand why since there is no explanation why some feature does not working properly
