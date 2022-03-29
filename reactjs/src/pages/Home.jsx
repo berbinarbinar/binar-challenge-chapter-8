@@ -1,7 +1,11 @@
-import { Typography } from "@mui/material";
+import ComboBox from "../components/ComboBox";
+import DataTable from "../data/DataTable";
 
 export default function Home() {
     return (
-        <Typography variant="h2">Home</Typography>
+        <>
+        <ComboBox />
+        <DataTable />
+        </>
     )
 }

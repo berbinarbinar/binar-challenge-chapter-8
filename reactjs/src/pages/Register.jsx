@@ -19,7 +19,7 @@ export default function Register() {
     return (
         <>
         <Grid container justifyContent={'center'} marginTop={'50px'} >
-            <Card sx={{ maxWidth: 350}}>
+            <Card sx={{ maxWidth: 350, backgroundColor: 'white' }}>
                 <CardMedia />
                 <CardContent>
                     <Typography gutterBottom variant='h3' component={'h4'} paddingTop={'10px'}>

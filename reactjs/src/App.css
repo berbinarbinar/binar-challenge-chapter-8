@@ -8,16 +8,13 @@ body {
     font-family: 'Montserrat';
     text-align: center;
 
-    background-color: rgb(4, 4, 85);
+    background-color: rgb(194, 194, 255);
 }
 
 nav a {
-    color: whitesmoke;
-
     text-decoration: none;
 }
 
-nav h5 {
-    color: whitesmoke;
+#dataTable {
+    
 }
-

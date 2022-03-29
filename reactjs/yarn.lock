@@ -1484,6 +1484,13 @@
     prop-types "^15.7.2"
     react-is "^17.0.2"
 
+"@mui/icons-material@^5.5.1":
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.5.1.tgz#848a57972617411370775980cbc6990588d4aafb"
+  integrity sha512-40f68p5+Yhq3dCn3QYHqQt5RETPyR3AkDw+fma8PtcjqvZ+d+jF84kFmT6NqwA3he7TlwluEtkyAmPzUE4uPdA==
+  dependencies:
+    "@babel/runtime" "^7.17.2"
+
 "@mui/material@^5.5.2":
   version "5.5.2"
   resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.5.2.tgz#9cea96abda87bed51d435e8676d5bfad99750b8a"
@@ -1556,6 +1563,16 @@
     "@types/react-is" "^16.7.1 || ^17.0.0"
     prop-types "^15.7.2"
     react-is "^17.0.2"
+
+"@mui/x-data-grid@^5.7.0":
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/@mui/x-data-grid/-/x-data-grid-5.7.0.tgz#fbb87989c201628f75dab419d6df44e9bb289bf1"
+  integrity sha512-mWk3IzClmGGsFfz3EzdifkQRhjNYkkyfCNMfQu1C6iJDPtkt5xmi71M+jMRv+lsupMEnrTv17j+6oM6YCqoM3Q==
+  dependencies:
+    "@mui/utils" "^5.4.4"
+    clsx "^1.1.1"
+    prop-types "^15.8.1"
+    reselect "^4.1.5"
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -7594,6 +7611,11 @@ requires-port@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+
+reselect@^4.1.5:
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/reselect/-/reselect-4.1.5.tgz#852c361247198da6756d07d9296c2b51eddb79f6"
+  integrity sha512-uVdlz8J7OO+ASpBYoz1Zypgx0KasCY20H+N8JD13oUMtPvSHQuscrHop4KbXrbsBcdB9Ds7lVK7eRkBIfO43vQ==
 
 resolve-cwd@^3.0.0:
   version "3.0.0"
