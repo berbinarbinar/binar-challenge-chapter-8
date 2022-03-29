@@ -103,7 +103,23 @@ playerRouter.post("/", PlayerController.createPlayer);
 /**
  * @swagger
  * /api/v1/players/exp/{id}:
- * post:
+ * post: 
+ *       summary: Update Player Experience By ID
+ *       parameters:
+ *        - in: path
+ *          name: id
+ *          schema:
+ *            type: object
+ *            required: 
+ *             - exp
+ *          properties:
+ *            exp:
+ *              type: number
+ *       produce:
+ *         - application/json
+ *       response:
+ *         200:
+ *           description: Player Updated
  *  
  */
 
