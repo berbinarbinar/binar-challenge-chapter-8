@@ -56,8 +56,6 @@ const playerRouter = require("express").Router();
  *          201:
  *              description: Player is created
  *          400:
- *              description: Bad Request
- *          404:
  *              description: ID/Username/email/password/experience might be empty or not valid
  *          default:
  *              description: Unexpected error
@@ -84,9 +82,9 @@ playerRouter.post("/", PlayerController.createPlayer);
  *          200:
  *              description: Show chosen player by ID
  *          400:
- *              description: Bad Request
+ *              description: ID might be empty or invalid
  *          404:
- *              description: ID might be invalid
+ *              description: ID not found
  *          default:
  *              description: Unexpected errors
  * 
@@ -129,9 +127,9 @@ playerRouter.post("/", PlayerController.createPlayer);
  *          200:
  *              description: Player is updated
  *          400:
- *              description: Bad Request
- *          404:
  *              description: ID/Username/email/password/experience might be empty or not valid
+ *          404:
+ *              description: ID not found
  *          default:
  *              description: Unexpected error
  * 
@@ -149,9 +147,9 @@ playerRouter.post("/", PlayerController.createPlayer);
  *          200:
  *              description: Delete chosen player by ID
  *          400:
- *              description: Bad Request
- *          404:
  *              description: ID might be invalid
+ *          404:
+ *              description: Player not found
  *          default:
  *              description: Unexpected errors
  */
@@ -191,9 +189,9 @@ playerRouter.delete("/:id", PlayerController.deletePlayer);
  *          201:
  *              description: Player's Experience is Updated
  *          400:
- *              description: Bad Request
- *          404:
  *              description: ID/experience might be empty or not valid
+ *          404:
+ *              description: Player Not Found
  *          default:
  *              description: Unexpected error
  * 
