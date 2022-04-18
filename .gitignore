@@ -135,3 +135,6 @@ dist
 # build files
 build/*
 dist/*
+
+# Flow
+flow.md
