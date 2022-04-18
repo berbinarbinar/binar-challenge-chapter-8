@@ -1,0 +1,227 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "API documentation for fulfill the challenge task in binar",
+    "version": "1.0.0",
+    "title": "Binar Academy Chapter 8 - Player Documentations",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "petstore.swagger.io",
+  "basePath": "/v2",
+  "tags": [
+    {
+      "name": "players",
+      "description": "Everything about player user"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/api/v1/players": {
+      "post": {
+        "tags": [
+          "players"
+        ],
+        "summary": "To get players data from database",
+        "description": "",
+        "operationId": "addPet",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of players"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "to post players data",
+        "description": "",
+        "operationId": "updatePet",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Pet not found"
+          },
+          "405": {
+            "description": "Validation exception"
+          }
+        }
+      }
+    },
+    "/api/v1/players/{id}": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Retrieve a single player user",
+        "description": "Returns a single pet",
+        "operationId": "getPetById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of pet to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Updates a player data with form data",
+        "description": "",
+        "operationId": "updatePetWithForm",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "ID of pet that needs to be updated",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "Updated name of the pet",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "in": "formData",
+            "description": "Updated status of the pet",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Delete a player user",
+        "description": "",
+        "operationId": "deletePet",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Pet id to delete",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "Pet not found"
+          }
+        },
+        "/api/v1/players/exp/{id}": null
+      },
+      "post": {
+        "tags": [
+          "players"
+        ],
+        "summary": "to update experience in player data",
+        "description": "",
+        "operationId": "uploadFile",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of pet to update",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "additionalMetadata",
+            "in": "formData",
+            "description": "Additional data to pass to server",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file to upload",
+            "required": false,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          }
+        }
+      }
+    }
+  }
+}
