@@ -10,12 +10,15 @@ app.use(cors())
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(errorHandler)
+const swaggerJSON = require('./swagger.json')
+const swaggerUI= require('swagger-ui-express')
 
 /**
  * @Routes /api
  * entrypoint for all API routes
  */
 app.use("/api", apiRouter)
+app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerJSON))
 
 app.listen(PORT, () => {
   console.log(`Listening on http://localhost:${PORT}`)
