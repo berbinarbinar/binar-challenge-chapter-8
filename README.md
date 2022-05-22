@@ -1,14 +1,19 @@
 # Feature:
 
 -API docs in / route and /swaggerUI route.
+
 -Integrated FE server with BE server.
+
 -Client GUI for API CRUD operation.
+
 -Client GUI for searching data. (REGEX-like search)
 
 # How to start:
 
 -npm install in root and client folder
+
 -sequelize db:create; sequelize db:migrate; sequelize db:seed:all in server folder.
+
 -npm start in root and client folder. API will take port 4000, Client UI will take port 3000.
 
 # Binar Academy Bootcamp - FSW - Chapter 8 - Challenge
