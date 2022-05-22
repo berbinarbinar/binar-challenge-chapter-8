@@ -1,0 +1,305 @@
+swagger: "2.0"
+info:
+  description: "Dokumentasi API untuk Challenge Chapter 8 Binar Academy Full Stack Web Developer Bootcamp Class. Repo dapat diakses di [https://github.com/berbinarbinar/binar-challenge-chapter-8.git]."
+  version: "1.0.0"
+  title: "Binar Academy's Chapter 8 Challenge API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "johanes.b.gading@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:4000"
+basePath: "/api/v1/"
+tags:
+  - name: "players"
+    description: "All about /players endpoint"
+schemes:
+  - "http"
+paths:
+  /players:
+    get:
+      tags:
+        - "players"
+      summary: "Get all players' data"
+      description: "Finding and listing all players' data."
+      operationId: "PlayerController.getPlayers"
+      produces:
+        - "application/json"
+      parameters:
+        - in: query
+          name: username
+          type: string
+          description: The user's username you want to get the data. Must be exact.
+          required: false
+        - in: query
+          name: email
+          type: string
+          description: The user's email you want to get the data. Must be exact.
+          required: false
+        - in: query
+          name: experience
+          type: string
+          description: The user's experience you want to get the data. Must be exact.
+          required: false
+        - in: query
+          name: level
+          type: string
+          description: The user's level you want to get the data. Must be exact.
+          required: false
+      responses:
+        "200":
+          description: "Request is successfully handled. Return players' data"
+          schema:
+            type: object
+            properties:
+              result:
+                type: string
+                example: "Success"
+              data:
+                type: array
+                items:
+                  $ref: "#/definitions/Player"
+    post:
+      tags:
+        - "players"
+      summary: "Add a new player"
+      description: "Adding one new player data."
+      operationId: "PlayerController.createPlayer"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Player data that needs to be added to the list"
+          required: true
+          schema:
+            $ref: "#/definitions/PlayerBody"
+      responses:
+        "201":
+          description: "Succesfully adding data. Returning the added data in JSON Format."
+          schema:
+            type: object
+            properties:
+              result:
+                type: string
+                example: "Success"
+              data:
+                type: array
+                items:
+                  $ref: "#/definitions/Player"
+        "400":
+          description: "Username or Email or Password are empty. Please check the request body."
+  /players/{id}:
+    get:
+      tags:
+        - "players"
+      summary: "Get one player data by ID"
+      description: "Finding one player data by mentioning ID"
+      operationId: "PlayerController.getPlayersById"
+      produces:
+        - "application/json"
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          minimum: 1
+          description: The user's ID you want to get the data. Must be exact.
+          required: true
+      responses:
+        "200":
+          description: "The player's data with mentioned ID"
+          schema:
+            type: object
+            properties:
+              result:
+                type: string
+                example: "Success"
+              data:
+                type: array
+                items:
+                  $ref: "#/definitions/Player"
+        "404":
+          description: "Player not found in the database."
+    put:
+      tags:
+        - "players"
+      summary: "Update an existing player data by ID"
+      description: "Updating one player's data by mentioning ID"
+      operationId: "PlayerController.update"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          minimum: 1
+          description: The user's ID you want to update the data. Must be exact.
+        - in: "body"
+          name: "body"
+          description: "Player data that needs to be updated to the list"
+          required: false
+          schema:
+            $ref: "#/definitions/PlayerBody"
+      responses:
+        "200":
+          description: "Successfully updating player's data with the mentioned ID. Returning the player's updated data."
+          schema:
+            type: object
+            properties:
+              result:
+                type: string
+                example: "Success"
+              data:
+                type: array
+                items:
+                  $ref: "#/definitions/Player"
+        "404":
+          description: "Player not found in the database."
+        "500":
+          description: "Failed to updating the data"
+    delete:
+      tags:
+        - "players"
+      summary: "Delete an existing player data by ID"
+      description: "Deleting one player data by mentioning ID"
+      operationId: "PlayerController.delete"
+      produces:
+        - "application/json"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          minimum: 1
+          description: The user's ID you want to delete the data. Must be exact.
+      responses:
+        "200":
+          description: "Successfully deleting player data with the mentioned ID."
+          schema:
+            type: object
+            properties:
+              result:
+                type: string
+                example: "Success"
+              message:
+                type: string
+                example: "Player with id: ${id}, was deleted successfully"
+        "400":
+          description: "Failed to delete player data with the mentioned ID. Player with the mentioned ID was not found"
+          schema:
+            type: object
+            properties:
+              result:
+                type: string
+                example: "FAILED"
+              message:
+                type: string
+                example: "Cannot delete Player with id=${id}. Maybe Player was not found!"
+  /players/exp/{id}:
+    post:
+      tags:
+        - "players"
+      summary: "Update a player's experience points by ID"
+      description: ""
+      operationId: "PlayerController.findOne"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: path
+          name: id
+          required: true
+          type: integer
+          minimum: 1
+          description: The user's ID you want to update the data. Must be exact.
+        - in: "body"
+          name: "body"
+          description: "EXP object that needs to be updated to the player's data"
+          required: true
+          schema:
+            type: object
+            properties:
+              exp:
+                type: integer
+                example: 700
+      responses:
+        "200":
+          description: "Successfully updating player data with the mentioned ID."
+          schema:
+            type: object
+            properties:
+              result:
+                type: string
+                example: "SUCCESS"
+              message:
+                type: string
+                example: "Player with id = ${id} gain ${exp} experience. Total experience = ${player.experience}"
+        "400":
+          description: "Failed to update player data with the mentioned ID. ID was not found or EXP object is empty"
+          schema:
+            type: object
+            properties:
+              result:
+                type: string
+                example: "FAILED"
+              message:
+                type: string
+                example: "Cannot update Player with id=${id}!"
+definitions:
+  Player:
+    type: object
+    required:
+      - "username"
+      - "email"
+      - "password"
+    properties:
+      username:
+        type: string
+        example: "jivoryy"
+      email:
+        type: string
+        example: "dasar.gadingan@gundulmu.com"
+      password:
+        type: string
+        example: "KudaJingkrak123"
+      experience:
+        type: integer
+        example: 990000
+      lvl:
+        type: integer
+        example: 800
+      createdAt:
+        type: string
+        format: date-time
+      updatedAt:
+        type: string
+        format: date-time
+  PlayerBody:
+    type: object
+    required:
+      - "username"
+      - "email"
+      - "password"
+    properties:
+      username:
+        type: string
+        example: "jivoryy"
+      email:
+        type: string
+        example: "dasar.gadingan@gundulmu.com"
+      password:
+        type: string
+        example: "KudaJingkrak123"
+      experience:
+        type: integer
+        example: 990000
+      lvl:
+        type: integer
+        example: 800
