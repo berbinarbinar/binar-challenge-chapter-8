@@ -1,0 +1,1352 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Binar Challenge Chapter 8",
+    "version": "1.0.0",
+    "contact": {}
+  },
+  "servers": [
+    {
+      "url": "localhost"
+    }
+  ],
+  "paths": {
+    "/api/": {
+      "get": {
+        "summary": "Testing the server",
+        "description": "Testing the server",
+        "operationId": "api",
+        "responses": {
+          "200": {
+            "description": "200 - succeeded response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "4"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 13:35:09 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"4-qUqP5cyxm6YcTAhz05Hph5gvu9M\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "text/plain": {
+                "examples": {
+                  "200 - succeeded response": {
+                    "value": "test"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/": {
+      "get": {
+        "summary": "Test the v1 api",
+        "description": "Test the v1 api",
+        "operationId": "apiV1",
+        "responses": {
+          "200": {
+            "description": "200 - succeeded response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "7"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 13:34:51 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"7-WwVyZcBukETjNg/zcZd3hpaKOoU\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "text/plain": {
+                "examples": {
+                  "200 - succeeded response": {
+                    "value": "from v1"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/players/": {
+      "get": {
+        "summary": "Get all player data on 'player' table",
+        "description": "Get all player data on 'player' table",
+        "operationId": "apiV1Players",
+        "responses": {
+          "200": {
+            "description": "200 - succeeded response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "1478"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 13:31:09 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"5c6-bmhmnms6I4D5D5TAEQLBXt0RjFI\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "createdAt": {
+                            "type": "string",
+                            "example": "2022-06-21T07:23:48.436Z"
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "pussy.slay3r@gmail.com"
+                          },
+                          "experience": {
+                            "type": "number",
+                            "example": 600000
+                          },
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "lvl": {
+                            "type": "number",
+                            "example": 600
+                          },
+                          "password": {
+                            "type": "string",
+                            "example": "$2b$10$PGIlXcUSyKZpRdLdlxOEZuE2fYISm9rNnE1alH/FRzypc65qUW8Zm"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "example": "2022-06-21T07:23:48.436Z"
+                          },
+                          "username": {
+                            "type": "string",
+                            "example": "PussySlayer613"
+                          }
+                        }
+                      },
+                      "example": [
+                        {
+                          "createdAt": "2022-06-21T07:23:48.436Z",
+                          "email": "pussy.slay3r@gmail.com",
+                          "experience": 600000,
+                          "id": 1,
+                          "lvl": 600,
+                          "password": "$2b$10$PGIlXcUSyKZpRdLdlxOEZuE2fYISm9rNnE1alH/FRzypc65qUW8Zm",
+                          "updatedAt": "2022-06-21T07:23:48.436Z",
+                          "username": "PussySlayer613"
+                        },
+                        {
+                          "createdAt": "2022-06-21T07:23:48.533Z",
+                          "email": "hclw@gmail.com",
+                          "experience": 600000,
+                          "id": 2,
+                          "lvl": 666,
+                          "password": "$2b$10$CONRR.TAbCFpHYOnqMv/dOvbMLD3HHxAq3NKDiJ3u.adCRW2urwwa",
+                          "updatedAt": "2022-06-21T07:23:48.533Z",
+                          "username": "HardcoreLevellingWarrior"
+                        },
+                        {
+                          "createdAt": "2022-06-21T13:03:23.017Z",
+                          "email": "gmail@pasha.com",
+                          "experience": 0,
+                          "id": 3,
+                          "lvl": 0,
+                          "password": "$2b$10$YzsU67qixjz4YMOHXb8Fg.5oUWHSJIjngR.cXqTLU8Sm2WRNBtveq",
+                          "updatedAt": "2022-06-21T13:03:23.017Z",
+                          "username": "pasha"
+                        },
+                        {
+                          "createdAt": "2022-06-21T13:03:47.534Z",
+                          "email": "sabrini@gmail.com",
+                          "experience": 999,
+                          "id": 4,
+                          "lvl": 0,
+                          "password": "$2b$10$SWTcDOIn9kRRUHZP0maWNOYGsgD0MbFxEyApS/pmeTkMfCsAZ7h.G",
+                          "updatedAt": "2022-06-21T13:03:47.534Z",
+                          "username": "sabrini"
+                        },
+                        {
+                          "createdAt": "2022-06-21T13:06:25.637Z",
+                          "email": "kaneki@gmail.com",
+                          "experience": 828,
+                          "id": 5,
+                          "lvl": 0,
+                          "password": "$2b$10$zANjePcAXFUr0q/gv5gsOeULXcuSUhfX8p30F6Ly3ko252yp1pv4e",
+                          "updatedAt": "2022-06-21T13:06:25.637Z",
+                          "username": "kaneki"
+                        },
+                        {
+                          "createdAt": "2022-06-21T13:14:33.639Z",
+                          "email": "playeremail@gmail.com",
+                          "experience": 999,
+                          "id": 6,
+                          "lvl": 0,
+                          "password": "$2b$10$IE0mY40ELIeJmKn5cE1EYOJXSVt1YGGRGRJKKb2I7IE4v5aYH0FU6",
+                          "updatedAt": "2022-06-21T13:14:33.639Z",
+                          "username": "playerusername"
+                        }
+                      ]
+                    },
+                    "result": {
+                      "type": "string",
+                      "example": "Success"
+                    }
+                  }
+                },
+                "examples": {
+                  "200 - succeeded response": {
+                    "value": {
+                      "data": [
+                        {
+                          "createdAt": "2022-06-21T07:23:48.436Z",
+                          "email": "pussy.slay3r@gmail.com",
+                          "experience": 600000,
+                          "id": 1,
+                          "lvl": 600,
+                          "password": "$2b$10$PGIlXcUSyKZpRdLdlxOEZuE2fYISm9rNnE1alH/FRzypc65qUW8Zm",
+                          "updatedAt": "2022-06-21T07:23:48.436Z",
+                          "username": "PussySlayer613"
+                        },
+                        {
+                          "createdAt": "2022-06-21T07:23:48.533Z",
+                          "email": "hclw@gmail.com",
+                          "experience": 600000,
+                          "id": 2,
+                          "lvl": 666,
+                          "password": "$2b$10$CONRR.TAbCFpHYOnqMv/dOvbMLD3HHxAq3NKDiJ3u.adCRW2urwwa",
+                          "updatedAt": "2022-06-21T07:23:48.533Z",
+                          "username": "HardcoreLevellingWarrior"
+                        },
+                        {
+                          "createdAt": "2022-06-21T13:03:23.017Z",
+                          "email": "gmail@pasha.com",
+                          "experience": 0,
+                          "id": 3,
+                          "lvl": 0,
+                          "password": "$2b$10$YzsU67qixjz4YMOHXb8Fg.5oUWHSJIjngR.cXqTLU8Sm2WRNBtveq",
+                          "updatedAt": "2022-06-21T13:03:23.017Z",
+                          "username": "pasha"
+                        },
+                        {
+                          "createdAt": "2022-06-21T13:03:47.534Z",
+                          "email": "sabrini@gmail.com",
+                          "experience": 999,
+                          "id": 4,
+                          "lvl": 0,
+                          "password": "$2b$10$SWTcDOIn9kRRUHZP0maWNOYGsgD0MbFxEyApS/pmeTkMfCsAZ7h.G",
+                          "updatedAt": "2022-06-21T13:03:47.534Z",
+                          "username": "sabrini"
+                        },
+                        {
+                          "createdAt": "2022-06-21T13:06:25.637Z",
+                          "email": "kaneki@gmail.com",
+                          "experience": 828,
+                          "id": 5,
+                          "lvl": 0,
+                          "password": "$2b$10$zANjePcAXFUr0q/gv5gsOeULXcuSUhfX8p30F6Ly3ko252yp1pv4e",
+                          "updatedAt": "2022-06-21T13:06:25.637Z",
+                          "username": "kaneki"
+                        },
+                        {
+                          "createdAt": "2022-06-21T13:14:33.639Z",
+                          "email": "playeremail@gmail.com",
+                          "experience": 999,
+                          "id": 6,
+                          "lvl": 0,
+                          "password": "$2b$10$IE0mY40ELIeJmKn5cE1EYOJXSVt1YGGRGRJKKb2I7IE4v5aYH0FU6",
+                          "updatedAt": "2022-06-21T13:14:33.639Z",
+                          "username": "playerusername"
+                        }
+                      ],
+                      "result": "Success"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create player data on 'player' table",
+        "description": "Create player data on 'player' table",
+        "operationId": "apiV1Players1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "playeremail@gmail.com"
+                  },
+                  "experience": {
+                    "type": "string",
+                    "example": "999"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "playerpassword"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "playerusername"
+                  }
+                }
+              },
+              "example": {
+                "email": "playeremail@gmail.com",
+                "experience": "999",
+                "password": "playerpassword",
+                "username": "playerusername"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "201 - succeeded response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "273"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 13:14:33 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"111-vPFIFcnn+SVzhktxHU4PY6F2flk\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "createdAt": {
+                          "type": "string",
+                          "example": "2022-06-21T13:14:33.639Z"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "playeremail@gmail.com"
+                        },
+                        "experience": {
+                          "type": "number",
+                          "example": 999
+                        },
+                        "id": {
+                          "type": "number",
+                          "example": 6
+                        },
+                        "lvl": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "password": {
+                          "type": "string",
+                          "example": "$2b$10$IE0mY40ELIeJmKn5cE1EYOJXSVt1YGGRGRJKKb2I7IE4v5aYH0FU6"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "example": "2022-06-21T13:14:33.639Z"
+                        },
+                        "username": {
+                          "type": "string",
+                          "example": "playerusername"
+                        }
+                      }
+                    },
+                    "result": {
+                      "type": "string",
+                      "example": "Success"
+                    }
+                  }
+                },
+                "examples": {
+                  "201 - succeeded response": {
+                    "value": {
+                      "data": {
+                        "createdAt": "2022-06-21T13:14:33.639Z",
+                        "email": "playeremail@gmail.com",
+                        "experience": 999,
+                        "id": 6,
+                        "lvl": 0,
+                        "password": "$2b$10$IE0mY40ELIeJmKn5cE1EYOJXSVt1YGGRGRJKKb2I7IE4v5aYH0FU6",
+                        "updatedAt": "2022-06-21T13:14:33.639Z",
+                        "username": "playerusername"
+                      },
+                      "result": "Success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 - no password response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "56"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 13:23:29 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"38-GquKPaySrn64DO8k/Qt/KI/ZtI0\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "password cannot be empty"
+                    },
+                    "result": {
+                      "type": "string",
+                      "example": "Failed"
+                    }
+                  }
+                },
+                "examples": {
+                  "400 - no password response": {
+                    "value": {
+                      "message": "password cannot be empty",
+                      "result": "Failed"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/players/:id": {
+      "get": {
+        "summary": "/api/v1/players/:id",
+        "description": "get player data by id on 'player' table",
+        "operationId": "apiV1PlayersId",
+        "responses": {
+          "200": {
+            "description": "200 - succeeded response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "273"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 13:36:07 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"111-UYw2SNgJsWYJsuA0kz4FHs4ujW4\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "createdAt": {
+                          "type": "string",
+                          "example": "2022-06-21T13:14:33.639Z"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "playeremail@gmail.com"
+                        },
+                        "experience": {
+                          "type": "number",
+                          "example": 999
+                        },
+                        "id": {
+                          "type": "number",
+                          "example": 6
+                        },
+                        "lvl": {
+                          "type": "number",
+                          "example": 0
+                        },
+                        "password": {
+                          "type": "string",
+                          "example": "$2b$10$IE0mY40ELIeJmKn5cE1EYOJXSVt1YGGRGRJKKb2I7IE4v5aYH0FU6"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "example": "2022-06-21T13:14:33.639Z"
+                        },
+                        "username": {
+                          "type": "string",
+                          "example": "playerusername"
+                        }
+                      }
+                    },
+                    "result": {
+                      "type": "string",
+                      "example": "Success"
+                    }
+                  }
+                },
+                "examples": {
+                  "200 - succeeded response": {
+                    "value": {
+                      "data": {
+                        "createdAt": "2022-06-21T13:14:33.639Z",
+                        "email": "playeremail@gmail.com",
+                        "experience": 999,
+                        "id": 6,
+                        "lvl": 0,
+                        "password": "$2b$10$IE0mY40ELIeJmKn5cE1EYOJXSVt1YGGRGRJKKb2I7IE4v5aYH0FU6",
+                        "updatedAt": "2022-06-21T13:14:33.639Z",
+                        "username": "playerusername"
+                      },
+                      "result": "Success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "404 - player is not found",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "59"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 13:37:01 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"3b-ad6Le7QGGc1DJZL1oATasXgU65c\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Player with 99 not found"
+                    },
+                    "result": {
+                      "type": "string",
+                      "example": "Not found"
+                    }
+                  }
+                },
+                "examples": {
+                  "404 - player is not found": {
+                    "value": {
+                      "message": "Player with 99 not found",
+                      "result": "Not found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "/api/v1/players/:id",
+        "description": "/api/v1/players/:id",
+        "operationId": "apiV1PlayersId2",
+        "responses": {
+          "200": {
+            "description": "200 - succeeded response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "76"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 13:55:08 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"4c-HXlA0QKeT2ur/nBW6bp8Uo7RUs8\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Player with id: 5, was deleted successfully"
+                    },
+                    "result": {
+                      "type": "string",
+                      "example": "Success"
+                    }
+                  }
+                },
+                "examples": {
+                  "200 - succeeded response": {
+                    "value": {
+                      "message": "Player with id: 5, was deleted successfully",
+                      "result": "Success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400? - player not found",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "92"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 13:50:33 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"5c-YzhJ7U1ooI3HULsWMKaXdbg2Te8\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Cannot delete Player with id=99. Maybe Player was not found!"
+                    },
+                    "result": {
+                      "type": "string",
+                      "example": "FAILED"
+                    }
+                  }
+                },
+                "examples": {
+                  "400? - player not found": {
+                    "value": {
+                      "message": "Cannot delete Player with id=99. Maybe Player was not found!",
+                      "result": "FAILED"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "/api/v1/players/:id",
+        "description": "/api/v1/players/:id",
+        "operationId": "apiV1PlayersId1",
+        "responses": {
+          "200": {
+            "description": "200 - succeeded response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "71"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 13:46:53 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"47-beyC/e0s6SY4MHQAYrv1ek57mHc\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Player with id: 6 successfully updated"
+                    },
+                    "result": {
+                      "type": "string",
+                      "example": "Success"
+                    }
+                  }
+                },
+                "examples": {
+                  "200 - succeeded response": {
+                    "value": {
+                      "message": "Player with id: 6 successfully updated",
+                      "result": "Success"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "404 - player to edit is not found",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "59"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 13:45:14 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"3b-ad6Le7QGGc1DJZL1oATasXgU65c\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Player with 99 not found"
+                    },
+                    "result": {
+                      "type": "string",
+                      "example": "Not found"
+                    }
+                  }
+                },
+                "examples": {
+                  "404 - player to edit is not found": {
+                    "value": {
+                      "message": "Player with 99 not found",
+                      "result": "Not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "500 - failed to update",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "48"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 13:48:24 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"30-lJ25iz8OnXX8wuG8CIN1xBMVba0\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Failed to update"
+                    },
+                    "result": {
+                      "type": "string",
+                      "example": "failed"
+                    }
+                  }
+                },
+                "examples": {
+                  "500 - failed to update": {
+                    "value": {
+                      "message": "Failed to update",
+                      "result": "failed"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/players/exp/6": {
+      "post": {
+        "summary": "/api/v1/players/exp/:id",
+        "description": "/api/v1/players/exp/:id",
+        "operationId": "apiV1PlayersExpId",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "exp": {
+                    "type": "string",
+                    "example": "99"
+                  }
+                }
+              },
+              "example": {
+                "exp": "99"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200 - succeeded response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "95"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 14:15:23 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"5f-1lB/T+oUS+ZiucOQsvvAJGqAndA\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Player with id = 6 gain 666 experience. Total experience = 999"
+                    },
+                    "result": {
+                      "type": "string",
+                      "example": "SUCCESS"
+                    }
+                  }
+                },
+                "examples": {
+                  "200 - succeeded response": {
+                    "value": {
+                      "message": "Player with id = 6 gain 666 experience. Total experience = 999",
+                      "result": "SUCCESS"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 - no exp response",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "string",
+                  "example": "57"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Tue, 21 Jun 2022 14:14:19 GMT"
+                }
+              },
+              "ETag": {
+                "schema": {
+                  "type": "string",
+                  "example": "W/\"39-rpS6Jy2R2UX0m1RThLTzzgtXYoY\""
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              },
+              "X-Powered-By": {
+                "schema": {
+                  "type": "string",
+                  "example": "Express"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Exp field cannot be empty"
+                    },
+                    "result": {
+                      "type": "string",
+                      "example": "Failed"
+                    }
+                  }
+                },
+                "examples": {
+                  "400 - no exp response": {
+                    "value": {
+                      "message": "Exp field cannot be empty",
+                      "result": "Failed"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}
