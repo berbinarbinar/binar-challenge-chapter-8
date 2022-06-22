@@ -1,0 +1,143 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "this is API",
+      "version": "1.0.0",
+      "title": "Nama API Kamu",
+      "termsOfService": "https://websitekamu/linkKeTermOfService",
+      "contact": {
+        "email": "kamu@mail.com"
+      },
+      "license": {
+        "name": "Apache 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+      }
+    },
+    "host": "api.website-kamu.com",
+    "basePath": "/api",
+    "tags": [
+      {
+        "name": "Article",
+        "description": "Article Resources"
+      }
+    ],
+    "paths": {
+      "/articles": {
+        "get": {
+          "tags": [
+            "Article"
+          ],
+          "summary": "List all available articles",
+          "description": "described hit",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "title": {
+                      "type": "string",
+                      "example": "Lorem Ipsum"
+                    },
+                    "body": {
+                      "type": "string",
+                      "example": "Dolor sit amet"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Article"
+          ],
+          "summary": "Add new article",
+          "description": "Create new",
+          "security": [
+            {
+              "Token": []
+            }
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "description": "Article object",
+              "required": true,
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "Lorem Ipsum"
+                  },
+                  "body": {
+                    "type": "string",
+                    "example": "Dolor sit amet"
+                  }
+                }
+              }
+            }
+          ],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "201": {
+              "description": "Successfully create new article",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "title": {
+                    "type": "string",
+                    "example": "Lorem Ipsum"
+                  },
+                  "body": {
+                    "type": "string",
+                    "example": "Dolor sit amet"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Failed to create new article",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "Failed to create new article"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "securityDefinitions": {
+      "Token": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    }
+  }
