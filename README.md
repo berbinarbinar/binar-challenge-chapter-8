@@ -9,23 +9,28 @@ Sebelum memulai menyentuh repository, pastikan komputer teman-teman memenuhi pra
 - sudah install git
 
 ## Project setup
-1. Fork repository ini. Ada tombol 'fork' di kanan atas atau klik https://github.com/berbinarbinar/binar-challenge-chapter-8.git. Lalu fork dan nanti akan muncul repository yang sama persis di akun teman-teman.
+1. Fork repository ini. Ada tombol 'fork' di kanan atas atau klik https://gitlab.com/yagnia/binar-challenge-chapter-8/-/forks/new. Nanti akan muncul repository yang sama persis di akun teman-teman.
 2. Clone repository teman-teman yang sudah di fork 
-
 ```
-$ git clone https://github.com/[username_kalian]/binar-challenge-chapter-8.git
+$ git clone https://gitlab.com/[username_kalian]/binar-challenge-chapter-8.git
+```
+atau
+```
+$ git clone git@gitlab.com:username_kalian/binar-challenge-chapter-8.git
+```
+3. Pindah ke folder repository
+```
+$ cd binar-challenge-chapter-8
+```
+3. Install dependencies
+```
+$ npm install
 ```
 
-3. Pindah ke folder repository yang udah di clone dgn perintah 
-`cd binar-challenge-chapter-8`
-4.  Install dependencies dgn command `npm install`
-5.   Pastikan sudah membuat database sesuai konfigurasi di `/config/config.js` jika belum jalankan saja `npx sequelize db:create` dan juga pastikan kita harus berada pada directory `server` kalau belum `cd server`
-6.   Lanjutkan dengan menjalankan migrasi, sebelumnya kita harus masuk pada directory `server` dulu ya, `npx sequelize db:migrate`
-7.   Kamu juga bisa jalankan file seed yang sudah dibuat dengan cara `npx sequelize db:seed:all`
 ### Run
 Untuk menjalankan aplikasi RESTful API, cukup jalankan perintah berikut
 ```
-$ npm run start
+$ node app.js
 ```
 
 ## Tasks
@@ -42,7 +47,7 @@ Jika teman-teman sudah berhasil menjalankan aplikasi RESTful API dari repository
         - [ ] format response
     - [ ] Pasang dokumentasi Swagger dalam satu routing
 2. Membuat client-side application dengan React.js
-    - [ ] Buat folder baru, misalkan /client, kemudian buat project baru dalam folder tersebut dengan `$ npm init -y` atau `$ npx create-react-app client`
+    - [ ] Buat folder baru, misalkan /client, kemudian buat project baru dalam folder tersebut dengan `$ npm init -y` atau `$ create-react-app challenge-8`
     - [ ] Buat tampilan/UI untuk fitur berikut :
         - [ ] Form untuk membuat player baru, dengan tombol Submit
         - [ ] Form untuk mengedit player, dengan tombol Submit
@@ -50,7 +55,7 @@ Jika teman-teman sudah berhasil menjalankan aplikasi RESTful API dari repository
     - [ ] Kita belum belajar mengintegrasikan back-end dan front-end. Jadi untuk challenge ini, ketika di klik tombol submit tampilkan semua input sebagai satu elemen HTML baru
         - [ ] Untuk form membuat atau edit player, tampilkan info username, email, dll setelah di klik submit. 
         - [ ] Untuk form mencari player, tampilkan ulang input kriteria username, email, experience, dan lvl.
-    - [ ] Jalankan sebagai aplikasi client-side (npm run start di folder client (buat run react app))
+    - [ ] Jalankan sebagai aplikasi client-side
 
 ## Caveats / Batasan
 - Tugas nomor 1 dan 2 dibuat dalam repository yang sama dengan repository RESTful API. Dengan kata lain, teman-teman bertugas mengembangkan repository RESTful API ini menjadi repository full-stack (RESTful API + client-side + documentation)
