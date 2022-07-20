@@ -1,0 +1,609 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is a sample game APIs made solely for practicing creating APIs documentation using swagger",
+    "version": "1.0.0",
+    "title": "Binar Chapter 8 Challenge",
+    "termsOfService": "",
+    "contact": {
+      "email": "hafidzfg@gmail.com"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "localhost:4000",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "index",
+      "description": "Default index endpoint",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    },
+    {
+      "name": "Players' data APIs",
+      "description": "Access to players data"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "index"
+        ],
+        "summary": "Home or default endpoint",
+        "description": "",
+        "operationId": "getIndex",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Return 'test'"
+          }
+        }
+      }
+    },
+    "/v1": {
+      "get": {
+        "tags": [
+          "index"
+        ],
+        "summary": "return 'from v1'",
+        "description": "",
+        "operationId": "getIndexV1",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "return 'from v1'"
+          }
+        }
+      }
+    },
+    "/v1/players": {
+      "get": {
+        "tags": [
+          "Players' data APIs"
+        ],
+        "summary": "Returns all players data",
+        "description": "",
+        "operationId": "getPlayers",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "example": "Success"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "username": {
+                        "type": "string",
+                        "example": "admin"
+                      },
+                      "password": {
+                        "type": "string",
+                        "example": "3rueasfhj03adsl"
+                      },
+                      "experience": {
+                        "type": "integer",
+                        "example": 600000
+                      },
+                      "lvl": {
+                        "type": "integer",
+                        "example": 600
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "example": "2022-07-20T03:00:00.4707Z"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "2022-07-20T03:00:00.4707Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Players' data APIs"
+        ],
+        "summary": "Create a new player data",
+        "description": "",
+        "operationId": "createPlayer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Created user object",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "admin"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "admin@yahoo.com"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "thisIsASecret"
+                },
+                "experience": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "default": 0,
+                  "example": 5
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "example": "Success"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "username": {
+                        "type": "string",
+                        "example": "admin"
+                      },
+                      "password": {
+                        "type": "string",
+                        "example": "3rueasfhj03adsl"
+                      },
+                      "experience": {
+                        "type": "integer",
+                        "example": 600000
+                      },
+                      "lvl": {
+                        "type": "integer",
+                        "example": 600
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "example": "2022-07-20T03:00:00.4707Z"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "2022-07-20T03:00:00.4707Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body supplied"
+          }
+        }
+      }
+    },
+    "/v1/players/{id}": {
+      "get": {
+        "tags": [
+          "Players' data APIs"
+        ],
+        "summary": "Return a player data",
+        "description": "",
+        "operationId": "getPlayerById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of player that needs to be fetched",
+            "required": true,
+            "type": "integer",
+            "minimum": 1,
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "example": "Success"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "username": {
+                        "type": "string",
+                        "example": "admin"
+                      },
+                      "password": {
+                        "type": "string",
+                        "example": "3rueasfhj03adsl"
+                      },
+                      "experience": {
+                        "type": "integer",
+                        "example": 600000
+                      },
+                      "lvl": {
+                        "type": "integer",
+                        "example": 600
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "example": "2022-07-20T03:00:00.4707Z"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "2022-07-20T03:00:00.4707Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "example": "Not found"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Player with {id} not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Players' data APIs"
+        ],
+        "summary": "Create a new player data",
+        "description": "",
+        "operationId": "updatePlayer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of player that needs to be updated",
+            "required": true,
+            "type": "integer",
+            "minimum": 1,
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User properties that will be updated",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "admin"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "admin@yahoo.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "example": "Success"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Player with id: 4 successfully updated"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "example": "Not found"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Player with {id} not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Players' data APIs"
+        ],
+        "summary": "Delete player by ID",
+        "description": "For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors",
+        "operationId": "deletePlayer",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of player that needs to be deleted",
+            "required": true,
+            "type": "integer",
+            "minimum": 1,
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "example": "Success"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Player with id: 4 was deleted successfully"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "example": "FAILED"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Cannot delete Player with id=6. Maybe Player was not found!"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Player not found"
+          }
+        }
+      }
+    },
+    "/v1/players/exp/{id}": {
+      "post": {
+        "tags": [
+          "Players' data APIs"
+        ],
+        "summary": "Update player's experience",
+        "description": "This will also automatically update player's level.",
+        "operationId": "updateExperience",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of player that needs to be deleted",
+            "required": true,
+            "type": "integer",
+            "minimum": 1,
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User properties that will be updated",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "exp": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "example": 50000
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "example": "Success"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Player with id = {id} gain {exp} experience. Total experience = 1000000998"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "result": {
+                  "type": "string",
+                  "example": "Not Found"
+                },
+                "message": {
+                  "type": "string",
+                  "example": "Player with {id} not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "petstore_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "modify pets in your account",
+        "read:pets": "read your pets"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Player": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string",
+          "example": "Success"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "example": 1
+              },
+              "username": {
+                "type": "string",
+                "example": "admin"
+              },
+              "password": {
+                "type": "string",
+                "example": "3rueasfhj03adsl"
+              },
+              "experience": {
+                "type": "integer",
+                "example": 600000
+              },
+              "lvl": {
+                "type": "integer",
+                "example": 600
+              },
+              "createdAt": {
+                "type": "string",
+                "example": "2022-07-20T03:00:00.4707Z"
+              },
+              "updatedAt": {
+                "type": "string",
+                "example": "2022-07-20T03:00:00.4707Z"
+              }
+            }
+          }
+        }
+      },
+      "xml": {
+        "name": "Player"
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
