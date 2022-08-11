@@ -106,7 +106,35 @@ export default function Dashboard() {
       </div>
 
       <div className="row mt-4">
-        <table class="table table-striped table-hover"></table>
+        <table class="table table-striped table-hover">
+          <thead className="table-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">Experience</th>
+              <th scope="col">Level</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {players.map((item, index) => {
+              return (
+                <tr key={index}>
+                  <th scope="row">{item.id}</th>
+                  <td>{item.username}</td>
+                  <td>{item.email}</td>
+                  <td>{item.experience}</td>
+                  <td>{item.lvl}</td>
+                  <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

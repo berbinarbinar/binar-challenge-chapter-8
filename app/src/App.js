@@ -7,6 +7,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Dashboard />}></Route>
+        <Route path="/player/add" element={<Dashboard />}></Route>
+        <Route path="/player/add/:id" element={<Dashboard />}></Route>
         {/* <Route path="/form" element={<Form />}></Route> */}
       </Routes>
     </Router>
