@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default function Dashboard() {
   const [players, setPlayers] = useState([]);
@@ -19,6 +21,7 @@ export default function Dashboard() {
     const responseJson = await response.json();
     setPlayers(responseJson.data);
   };
+
   useEffect(() => {
     fetchPlayers();
   }, []);
@@ -32,10 +35,19 @@ export default function Dashboard() {
     e.preventDefault();
   };
 
+  async function deletePlayers(id) {
+    let result = await fetch(`http://localhost:4000/api/v1/players/${id}`, {
+      method: "DELETE",
+    });
+    result = await result.json();
+    console.warn(result);
+    fetchPlayers();
+  }
+
   return (
     <div className="container">
       <div className="row mt-3">
-        <form className="d-flex w-100" onSubmit={applyFilters}>
+        <form className="row d-flex w-100" onSubmit={applyFilters}>
           <div className="col form-group">
             <label htmlFor="username" className="form-label">
               Username
@@ -49,64 +61,64 @@ export default function Dashboard() {
               onChange={onFilterChange}></input>
           </div>
           <div className="col form-group">
-            <div className="col form-group">
-              <label htmlFor="email" className="form-label">
-                Email
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                placeholder="Email"
-                name="email"
-                onChange={onFilterChange}></input>
-            </div>
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              id="email"
+              placeholder="Email"
+              name="email"
+              onChange={onFilterChange}></input>
           </div>
           <div className="col form-group">
-            <div className="col form-group">
-              <label htmlFor="experience" className="form-label">
-                Experience
-              </label>
-              <input
-                type="experience"
-                className="form-control"
-                id="experience"
-                placeholder="1000"
-                name="experience"
-                onChange={onFilterChange}></input>
-            </div>
+            <label htmlFor="experience" className="form-label">
+              Experience
+            </label>
+            <input
+              type="number"
+              className="form-control"
+              id="experience"
+              placeholder="1000"
+              name="experience"
+              onChange={onFilterChange}></input>
           </div>
           <div className="col form-group">
-            <div className="col form-group">
-              <label htmlFor="level" className="form-label">
-                Level
-              </label>
-              <input
-                type="level"
-                className="form-control"
-                id="level"
-                placeholder="1"
-                name="level"
-                onChange={onFilterChange}></input>
-            </div>
+            <label htmlFor="level" className="form-label">
+              Level
+            </label>
+            <input
+              type="number"
+              className="form-control"
+              id="level"
+              placeholder="1"
+              name="level"
+              onChange={onFilterChange}></input>
           </div>
           <div className="col form-group d-flex align-items-end">
-            <button type="submit" className="btn btn-dark">
+            <button
+              type="submit"
+              className="btn btn-dark form-control"
+              onClick={fetchPlayers}>
               Search
             </button>
           </div>
         </form>
       </div>
-      <div className="row mt-3">
+
+      <div className="row mt-3 w-100">
         <div className="col d-flex justify-content-end">
-          <button type="button" className="btn btn-success">
-            Add player
-          </button>
+          <Link to="/player/add">
+            <button type="button" className="btn btn-success">
+              Add player
+            </button>
+          </Link>
         </div>
       </div>
 
-      <div className="row mt-4">
-        <table class="table table-striped table-hover">
+      <div className="row mt-4 w-100">
+        <table className="table table-striped table-hover">
           <thead className="table-dark">
             <tr>
               <th scope="col">ID</th>
@@ -127,8 +139,14 @@ export default function Dashboard() {
                   <td>{item.experience}</td>
                   <td>{item.lvl}</td>
                   <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <button className="btn btn-primary">Edit</button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => {
+                        deletePlayers(item.id);
+                      }}>
+                      Delete
+                    </button>
                   </td>
                 </tr>
               );
