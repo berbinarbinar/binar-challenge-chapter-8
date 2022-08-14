@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 export default function Dashboard() {
   const [players, setPlayers] = useState([]);
@@ -139,7 +138,9 @@ export default function Dashboard() {
                   <td>{item.experience}</td>
                   <td>{item.lvl}</td>
                   <td>
-                    <button className="btn btn-primary">Edit</button>
+                    <Link to={`player/edit/${item.id}`}>
+                      <button className="btn btn-primary">Edit</button>
+                    </Link>
                     <button
                       className="btn btn-danger"
                       onClick={() => {

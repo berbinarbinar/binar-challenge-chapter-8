@@ -19,7 +19,7 @@ export default function AddPlayer() {
           headers: { "Content-Type": "application/json" },
         }
       );
-      if (response.status == 201) {
+      if (response.status === 201) {
         setMessage("User created successfully");
       } else {
         setMessage("Error occured");

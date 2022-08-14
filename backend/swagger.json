@@ -298,7 +298,7 @@
       },
       "put": {
         "tags": ["Players' data APIs"],
-        "summary": "Create a new player data",
+        "summary": "Edit a player's data",
         "description": "",
         "operationId": "updatePlayer",
         "produces": ["application/json"],
