@@ -10,7 +10,7 @@
     },
     "license": {
       "name": "MIT License",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+      "url": "https://opensource.org/licenses/MIT"
     }
   },
   "host": "localhost:4000",
@@ -29,26 +29,16 @@
       "description": "Access to players data"
     }
   ],
-  "schemes": [
-    "http"
-  ],
+  "schemes": ["http"],
   "paths": {
     "/": {
       "get": {
-        "tags": [
-          "index"
-        ],
+        "tags": ["index"],
         "summary": "Home or default endpoint",
         "description": "",
         "operationId": "getIndex",
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "produces": [
-          "application/xml",
-          "application/json"
-        ],
+        "consumes": ["application/json", "application/xml"],
+        "produces": ["application/xml", "application/json"],
         "responses": {
           "200": {
             "description": "Return 'test'"
@@ -58,20 +48,12 @@
     },
     "/v1": {
       "get": {
-        "tags": [
-          "index"
-        ],
+        "tags": ["index"],
         "summary": "return 'from v1'",
         "description": "",
         "operationId": "getIndexV1",
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "produces": [
-          "application/xml",
-          "application/json"
-        ],
+        "consumes": ["application/json", "application/xml"],
+        "produces": ["application/xml", "application/json"],
         "responses": {
           "200": {
             "description": "return 'from v1'"
@@ -81,15 +63,11 @@
     },
     "/v1/players": {
       "get": {
-        "tags": [
-          "Players' data APIs"
-        ],
+        "tags": ["Players' data APIs"],
         "summary": "Returns all players data",
         "description": "",
         "operationId": "getPlayers",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "successful operation",
@@ -142,15 +120,11 @@
         }
       },
       "post": {
-        "tags": [
-          "Players' data APIs"
-        ],
+        "tags": ["Players' data APIs"],
         "summary": "Create a new player data",
         "description": "",
         "operationId": "createPlayer",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "in": "body",
@@ -239,15 +213,11 @@
     },
     "/v1/players/{id}": {
       "get": {
-        "tags": [
-          "Players' data APIs"
-        ],
+        "tags": ["Players' data APIs"],
         "summary": "Return a player data",
         "description": "",
         "operationId": "getPlayerById",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -327,15 +297,11 @@
         }
       },
       "put": {
-        "tags": [
-          "Players' data APIs"
-        ],
-        "summary": "Create a new player data",
+        "tags": ["Players' data APIs"],
+        "summary": "Edit a player's data",
         "description": "",
         "operationId": "updatePlayer",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -402,15 +368,11 @@
         }
       },
       "delete": {
-        "tags": [
-          "Players' data APIs"
-        ],
+        "tags": ["Players' data APIs"],
         "summary": "Delete player by ID",
         "description": "For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors",
         "operationId": "deletePlayer",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -463,15 +425,11 @@
     },
     "/v1/players/exp/{id}": {
       "post": {
-        "tags": [
-          "Players' data APIs"
-        ],
+        "tags": ["Players' data APIs"],
         "summary": "Update player's experience",
         "description": "This will also automatically update player's level.",
         "operationId": "updateExperience",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
