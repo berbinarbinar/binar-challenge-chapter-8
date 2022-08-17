@@ -1,0 +1,193 @@
+{
+    "swagger": "2.0",
+    "info": {
+       "version": "1.0.0",
+       "title": "Challange Chapter 8 Documentation",
+       "description": "Restfull API Documentation"
+    },
+    "host":"localhost:4000",
+    "basePath":"/",
+    "schemes":["http","https"],
+    "consumes":["application/json","application/x-www-form-urlencoded"],
+    "produces":["application/json","application/x-www-form-urlencoded"],
+    "tags":[
+        {
+            "name":"Players",
+            "description":"API FOR PLAYER MODELS"
+        }
+    ],
+    "paths":{
+        "/players":{
+              "get":{
+                "tags":["Players"],
+                "summary":"Get all Players",
+                "responses": {
+                "200": {
+                    "description":"OK",
+                    "schema":{
+                        "$ref":"#/definitions/PlayerRPS"
+                    }
+                 }
+               }
+            }  
+        },
+        "/addPlayer": {
+            "post": {
+                "tags":["Players"],
+                "description":"Create new Player in game RPS",
+                "parameters":[
+                    {
+                        "name":"player",
+                        "in": "body",
+                        "description": "User that we want to create",
+                        "schema":{
+                            "$ref": "#/definitions/PlayerRockPaperScissor"
+                        }
+                    }
+                ],
+                "produces":["application/json"],
+                "responses":{
+                    "200": {
+                        "description": "New player is created",
+                        "schema":{
+                            "$ref":"#/definitions/PlayerRockPaperScissor"
+                        },
+                        "401":{
+                            "description": "Player with ${id} not found"
+                        }
+                    }
+                }
+            }
+        },
+        "/addPlayer/{id}": {
+            "parameters": [
+                {
+                    "name":"id",
+                    "in": "path",
+                    "required": true,
+                    "description": "ID of playerRPS that we want to findByPrimarykey id",
+                    "type":"integer"
+                }
+            ],
+            "get":{
+                "summary":"GetPlayer with give ID",
+                "tags":["Players"],
+                 "responses":{
+                    "200": {
+                        "description":"OK",
+                        "schema":{
+                            "$ref":"#/definitions/PlayerRPS"
+                        }
+                    }
+                 }
+            }
+        },
+        "/player/{id}":{
+            "parameters":[
+                {
+                    "name":"id",
+                    "in":"path",
+                    "required":true,
+                    "description": "ID of player that we want to find",
+                    "type":"integer"
+                }
+            ],
+            "put": {
+                "summary":"Update player with give ID",
+                "tags":["Players"],
+                "parameters":[
+                    {
+                        "name":"player",
+                        "in":"body",
+                        "description":"Player with new value of properties",
+                        "schema":{
+                            "$ref":"#/definitions/PlayerRPS"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Player is updated",
+                        "schema":{
+                            "$ref":"#/definitions/PlayerRockPaperScissor"
+                        }
+                    }
+                }
+            }
+        },
+        "/player/delete/{id}":{
+            "parameters":[
+                {
+                    "name":"id",
+                    "in":"path",
+                    "required":true,
+                    "description": "ID of player that we want to find",
+                    "type":"integer"
+                }
+            ],
+            "delete": {
+                "summary":"Update player with give ID",
+                "tags":["Players"],
+                "parameters":[
+                    {
+                        "name":"player",
+                        "in":"body",
+                        "description":"Player with new value of properties",
+                        "schema":{
+                            "$ref":"#/definitions/updatePlayer"
+                        }
+                    }
+                ],
+                "responses":{
+                    "200":{
+                        "description":"Player is updated",
+                        "schema":{
+                            "$ref":"#/definitions/PlayerRPS"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions":{
+        "PlayerRockPaperScissor":{
+            "required":["username","email", "experience","lvl"],
+            "properties":{
+                "username":{
+                    "type":"string",
+                    "required":true
+                },
+                "email":{
+                    "type":"string"
+                },
+                "experience": {
+                    "type":"integer"
+                },
+                "lvl":{
+                    "type":"integer"
+                }
+            }
+        },
+        "PlayerRPS": {
+            "type":"array",
+            "$ref": "#/definitions/PlayerRockPaperScissor"
+        },
+        "updatePlayer":{
+            "required":["username","email","experience","lvl"],
+            "properties":{
+                "username": {
+                    "type": "string"
+                },
+                "email": {
+                    "type":"string"
+                },
+                "experience":{
+                    "type":"integer"
+                },
+                "lvl":{
+                    "type":"integer"
+                }
+            }
+        }
+    }
+}
