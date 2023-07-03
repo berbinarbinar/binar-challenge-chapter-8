@@ -1,0 +1,22 @@
+.d-grid {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+.background{
+  background-image: url(/public/main-bg.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+}
+
+.form{
+  color: white;
+}
